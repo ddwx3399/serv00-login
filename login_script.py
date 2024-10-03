@@ -44,19 +44,20 @@ async def login(username, password, panel):
         await page.type('#id_password', password)
 
         login_button = await  page.querySelector('input[type="submit"]')
-        
+        print(login_button)
         if login_button:
             await login_button.click()
+            print(f'click')
         else:
             raise Exception('无法找到登录按钮')
 
         await page.waitForNavigation()
-
+        print(f'waitForNavigation')
         is_logged_in = await page.evaluate('''() => {
             const logoutButton = document.querySelector('a[href="/logout/"]');
             return logoutButton !== null;
         }''')
-
+        print(is_logged_in)
         return is_logged_in
 
     except Exception as e:
