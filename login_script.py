@@ -133,7 +133,5 @@ async def send_telegram_message(message):
         print(f"发送消息到Telegram时出错: {e}")
 
 if __name__ == '__main__':
-    if platform.system()=='Windows':
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())    
     asyncio.run(main())
