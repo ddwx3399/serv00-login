@@ -54,7 +54,7 @@ async def login(username, password, panel):
         await page.waitForNavigation()
         print(f'waitForNavigation')
         is_logged_in = await page.evaluate('''() => {
-            const logoutButton = document.querySelector('a[href="/logout/"]');
+            const logoutButton = document.querySelector('a[href="/logout"]');
             return logoutButton !== null;
         }''')
         print(is_logged_in)
