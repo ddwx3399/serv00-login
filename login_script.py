@@ -7,6 +7,8 @@ import random
 import requests
 import os
 import platform
+import nest_asyncio
+nest_asyncio.apply()
 
 # 从环境变量中获取 Telegram Bot Token 和 Chat ID
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
