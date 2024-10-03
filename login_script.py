@@ -6,6 +6,7 @@ import aiofiles
 import random
 import requests
 import os
+import platform
 
 # 从环境变量中获取 Telegram Bot Token 和 Chat ID
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -132,4 +133,7 @@ async def send_telegram_message(message):
         print(f"发送消息到Telegram时出错: {e}")
 
 if __name__ == '__main__':
+    if platform.system()=='Windows':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    
     asyncio.run(main())
