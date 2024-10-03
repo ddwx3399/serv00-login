@@ -43,7 +43,7 @@ async def login(username, password, panel):
         await page.type('#id_username', username)
         await page.type('#id_password', password)
 
-        login_button = await page.querySelector('#ZALOGUJ SIĘ')
+        login_button = await page.document.querySelectorAll('[type=submit]')
         if login_button:
             await login_button.click()
         else:
