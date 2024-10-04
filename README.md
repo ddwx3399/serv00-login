@@ -1,4 +1,6 @@
-## serv00与ct8自动化批量保号，每3天自动登录一次面板，并且发送消息到Telegram
+自动登录  https://www.ugu.pl/login/?next=/panel/
+
+
 
 利用github Action以及python脚本实现
 
