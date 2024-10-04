@@ -7,8 +7,7 @@ import random
 import requests
 import os
 import platform
-import nest_asyncio
-nest_asyncio.apply()
+from scrapy.selector import Selector
 
 # 从环境变量中获取 Telegram Bot Token 和 Chat ID
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -61,6 +60,8 @@ async def login(username, password, panel):
             return logoutButton !== null;
         }''')
         print(is_logged_in)
+        t2 = Selector(text=html).css('span::text').extract()  # 所有span 的内容
+        print(t2)  # ['item1','item2']
         return is_logged_in
 
     except Exception as e:
